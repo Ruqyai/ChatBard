@@ -2,7 +2,10 @@
 
 # ChatBARD : An Intelligent Customer Service Center App
 
-This is a Flutter app for an intelligent customer service center. It provides a chat interface where users can interact with a chatbot to get customer support. The app uses machine learning and natural language processing techniques to understand and respond to user messages.
+This is a Flutter app for an intelligent customer service center. It provides a chat interface where users can interact with a chatbot to get customer support. The app uses machine learning and natural language processing techniques specifically **PaLM APIs** to understand and respond to user messages.
+
+## How does it work?
+The ChatBARD responds to customer queries based on the information it has been fed with in terms of context and examples. Then it summarizes the conversation and stores the summary in the database in Firebase.
 
 ## Features
 
@@ -15,7 +18,7 @@ This is a Flutter app for an intelligent customer service center. It provides a 
 
 Here are some screenshots of the app:
 
-![Screenshot 1](screenshots/screenshot1.gif)
+![Screenshot 1](screenshots/screenshot1.gif)  
 _A conversation with the client, and after the conversation ends, it is summarized and stored in Firebase._
 
 
