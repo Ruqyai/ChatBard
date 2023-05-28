@@ -10,7 +10,9 @@
 .svn/
 migrate_working_dir/
 firebase_config.dart
+firebase_options.dart
 oauth.dart
+var.py
 
 # IntelliJ related
 *.iml

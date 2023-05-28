@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "270547489511",
+    "project_id": "palm-rs",
+    "storage_bucket": "palm-rs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270547489511:android:e6b7fb6422bc65b16f0842",
+        "android_client_info": {
+          "package_name": "com.example.chatbot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270547489511-tjdqfeilo2chaktv96v5gb1gorjqasb5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFdPQ3Gk6W5--hGfdSyodtkShB6k8OoOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270547489511-0n8ph0g2fuv6f3npbj47jkno81lalc7e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "270547489511-a6ch6f340d7trqbutr15sp2am00oebhl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.chatbot"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

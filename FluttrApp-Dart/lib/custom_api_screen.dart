@@ -3,51 +3,82 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'examples.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'oauth.dart';
 
-class ChatbotScreen extends StatefulWidget {
-  const ChatbotScreen({super.key});
+class CustomApiScreen extends StatefulWidget {
+  const CustomApiScreen({super.key});
 
   @override
-  _ChatbotScreenState createState() => _ChatbotScreenState();
+  _CustomApiScreenState createState() => _CustomApiScreenState();
 }
 
-class _ChatbotScreenState extends State<ChatbotScreen> {
+class _CustomApiScreenState extends State<CustomApiScreen> {
   final TextEditingController _textEditingController = TextEditingController();
   final List<String> _messages = [];
   final List<String> chatHistory = [];
-  
+
+
+
 //-------------Start the Chat ----------
-  Future<void> sendMessage(String message) async {
-    final String apiUrlChat = urlChatApi;
+  Future<void> sendMsgRESTAPI(String message) async {
+    final String apiUrlChat = urlChatRESTApi;
     final headers = {
-      'Authorization': 'Bearer $accessToken',
+      "Access-Control-Allow-Origin": "*",
       'Content-Type': 'application/json',
+      'Accept': '*/*'
     };
 
     final body = '''
-    {
-      "instances": [
-        {
-          "context": "$context",
-          "examples": [$examples],
-          "messages": [
-            {
-              "role": "system",
-              "content": "$message"
-            }
-          ]
-        }
-      ],
-      "parameters": {
-        "temperature": 0.2,
-        "maxOutputTokens": 256,
-        "topP": 0.8,
-        "topK": 40
-      }
+    {"message": "$message"}
+    ''';
+
+    final response =
+        await http.post(Uri.parse(apiUrlChat), headers: headers, body: body);
+     
+    if (response.statusCode == 200) {
+      final responseBody = response.body;
+      final parsedJson = json.decode(responseBody);
+      final reply = parsedJson['response'];
+      print(reply);
+      //return reply;
+      setState(() {
+        _messages.add(reply);
+        chatHistory.add(reply);
+      });
+   
+    } else {
+       print('Error: ${response.statusCode}');
     }
+  }
+
+  //------------- handle Submitted message----------
+  void _handleSubmitted(String text) async {
+    _textEditingController.clear();
+    setState(() {
+      _messages.add(text);
+      chatHistory.add(text);
+    });
+
+    try {
+      await sendMsgRESTAPI(text);
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+//-------------summarize And Save Chat Session RESTAPI ----------
+  Future<void> summarizeAndSaveChatSessionRESTAPI() async {
+    var summary = '';
+    final String apiUrlChat = urlSummarizeChatRESTApi;
+    final headers = {
+       "Access-Control-Allow-Origin": "*",
+      'Content-Type': 'application/json',
+      'Accept': '*/*'
+    };
+
+    final body = '''
+    {"content": "$chatHistory"}
     ''';
 
     final response =
@@ -56,84 +87,11 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     if (response.statusCode == 200) {
       final responseBody = response.body;
       final parsedJson = json.decode(responseBody);
-      var reply = '';
-      final predictions = parsedJson['predictions'];
-      if (predictions != null && predictions.isNotEmpty) {
-        final candidates = predictions[0]['candidates'];
-        if (candidates != null && candidates.isNotEmpty) {
-          final content = candidates[0]['content'];
-          if (content != null) {
-            reply = content;
-          }
-        }
-      }
-      setState(() {
-        _messages.add(reply);
-        chatHistory.add(reply);
-      });
-    } else {
-      print('Error: ${response.statusCode}');
-    }
-  }
-
-  void _handleSubmitted(String text) async {
-    _textEditingController.clear();
-
-    setState(() {
-      _messages.add(text);
-      chatHistory.add(text);
-    });
-
-    try {
-      await sendMessage(text);
-    } catch (e) {
-      print(e.toString());
-    }
-  }
-
-  //----------------Summarize Then Save The Chat ----------
-
-  Future<void> summarizeAndSaveChatSession() async {
-    var summary = '';
-    final String apiUrlSummarizeChat = urlSummarizeChatApi;
-    final headers = {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json',
-    };
-
-    final body = '''
-    {
-     "instances": [
-          {
-          "content": "Summarize the following conversation between a service rep and a customer in a few sentences. Use only the information from the conversation. $chatHistory"
-          }
-        ],
-      "parameters": {
-        "temperature": 0.2,
-        "maxOutputTokens": 256,
-        "topP": 0.8,
-        "topK": 40
-      }
-    }
-    ''';
-
-    final response = await http.post(
-      Uri.parse(apiUrlSummarizeChat),
-      headers: headers,
-      body: body,
-    );
-
-    if (response.statusCode == 200) {
-      final responseBody = response.body;
-      final parsedJson = json.decode(responseBody);
-      final predictions = parsedJson['predictions'];
-      if (predictions != null && predictions.isNotEmpty) {
-        final content = predictions[0]['content'];
-        if (content != null) {
-          print(content);
-          summary = content;
-        }
-      }
+      final reply = parsedJson['response'];
+      
+      summary = reply;
+      print(summary);
+        
       //Save the summarized chat in Firebase
       final CollectionReference chatSummariesCollection =
           FirebaseFirestore.instance.collection('chat_summaries');
@@ -147,6 +105,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     }
   }
 
+
 //----------------Build UI ----------
   @override
   Widget build(BuildContext context) {
@@ -155,7 +114,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'ChatBARD',
+            'Chat Bard',
           ),
         ),
         body: Column(
@@ -186,7 +145,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
           message: 'Summarize and Save',
           child: FloatingActionButton(
             onPressed: () {
-              summarizeAndSaveChatSession().catchError((error) {
+              summarizeAndSaveChatSessionRESTAPI().catchError((error) {
                 print('Error summarizing chat session: $error');
               });
             },
@@ -197,3 +156,4 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     );
   }
 }
+

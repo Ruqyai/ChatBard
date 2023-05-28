@@ -1,21 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'custom_api_screen.dart';
+import 'arabic_bard.dart';
 import 'chatbot_screen.dart';
-import 'firebase_config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: FirebaseOptions(
-      apiKey: firebaseConfig['apiKey']!,
-      authDomain: firebaseConfig['authDomain']!,
-      projectId: firebaseConfig['projectId']!,
-      storageBucket: firebaseConfig['storageBucket']!,
-      messagingSenderId: firebaseConfig['messagingSenderId']!,
-      appId: firebaseConfig['appId']!,
-      measurementId: firebaseConfig['measurementId']!,
-    ),
+    options: DefaultFirebaseOptions.currentPlatform,
   );
+
   runApp(const MyApp());
 }
 
@@ -30,7 +26,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ChatbotScreen(),
+      //home: UseRestScreen(), //uncomment it to see this screen as home screen
+      home: ArabicBardScreen(),
+      //home: ChatbotScreen(), // uncomment it to see this screen as home screen
     );
   }
 }

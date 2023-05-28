@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chatbot Interface</title>
+  <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="chatbox">
+    </div>
+    <div class="input-container">
+      <input type="text" class="input-field" id="message-input" placeholder="Type your message...">
+      <button class="send-button" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      var messageInput = document.getElementById("message-input");
+      var message = messageInput.value;
+      messageInput.value = "";
+      var chatbox = document.getElementsByClassName("chatbox")[0];
+      var botMessageContainer = document.createElement("div");
+      botMessageContainer.className = "bot-message";
+      botMessageContainer.textContent = message;
+      chatbox.appendChild(botMessageContainer);
+      var userMessageContainer = document.createElement("div");
+      userMessageContainer.className = "user-message";
+      chat_url = "https://chat-btfpe7ljtq-uc.a.run.app/chat";
+      fetch(chat_url, {
+        method: 'POST',
+        body: JSON.stringify({ message: message }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          var userMessageContainer = document.createElement("div");
+          userMessageContainer.className = "user-message";
+          userMessageContainer.textContent = data.response;
+          chatbox.appendChild(userMessageContainer);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  </script>
+</body>
+
+</html>
