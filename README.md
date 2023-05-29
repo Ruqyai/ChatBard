@@ -1,7 +1,35 @@
 
 
-# ChatBARD : An Intelligent Customer Service Center App
+# ChatBard : An Intelligent Customer Service Center App    
+
 The apps use **Generative AI** and Large Language Models (**LLM**) specifically **PaLM2 APIs**.
+
+<h3>The table of contents:<h3>
+
+- [ChatBard: An Intelligent Customer Service Center App](#chatbard--an-intelligent-customer-service-center-app)
+1. [First Example: Flutter App / Drat](#first-example-flutter-app--drat)
+   - [How does it work?](#how-does-it-work)
+   - [Features](#features)
+   - [Screenshots](#screenshots)
+   - [Prerequisites](#prerequisites)
+   - [Getting Started](#getting-started)
+   - [Customize The App](#customize-the-app)
+   - [Usage](#usage)
+2. [Second Example: Flask App / Python](#second-example-flask-app--python)
+   - [Screenshots](#screenshots-1)
+   - [Deploying a REST API on Cloud Run](#deploying-a-rest-api-on-cloud-run)
+   - [To Use My Deployment API Endpoints](#to-use-my-deployment-api-endpoints)
+      - [/chat](#chat)
+      - [/summary](#summary)
+    - [Arabic Chat Bard](#arabic-chat-bard)
+      - [/chat_ar](#chat_ar)
+      - [/summary_ar](#summary_ar)
+      - [/en2ar](#en2ar)
+      - [/ar2en](#ar2en)
+- [Contributing](#contributing)
+- [License](#license)
+
+
 ---
 
 # First Example: Flutter App / Drat
