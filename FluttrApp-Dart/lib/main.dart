@@ -26,9 +26,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //home: UseRestScreen(), //uncomment it to see this screen as home screen
-      home: ArabicBardScreen(),
-      //home: ChatbotScreen(), // uncomment it to see this screen as home screen
+      home: ChatbotScreen(), // uncomment it to see this screen as home screen
+      // home: CustomApiScreen(), //uncomment it to see this screen as home screen
+      //home: ArabicBardScreen(), //uncomment it to see this screen as home screen
     );
   }
 }

@@ -105,7 +105,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     {
      "instances": [
           {
-          "content": "Summarize the following conversation between a service rep and a customer in a few sentences. Use only the information from the conversation. $chatHistory"
+          "content": "Summarize the following conversation between a chatBard and a customer in a few sentences. Use only the information from the conversation. $chatHistory"
           }
         ],
       "parameters": {

@@ -71,6 +71,9 @@ def summarize_chat(
 
     model = TextGenerationModel.from_pretrained(model_name)
 
+    content = '\n'.join(content)
+    content="Summarize the following conversation between a chatBard and a customer in a few sentences. Use only the information from the conversation. \n" +content
+    
     if tuned_model_name:
       model = model.get_tuned_model(tuned_model_name)
 
@@ -158,6 +161,9 @@ def arabic_summarize_chat(
 
     model = TextGenerationModel.from_pretrained(model_name)
 
+    content = '\n'.join(content)
+    content="Summarize the following conversation between a chatBard and a customer in a few sentences. Use only the information from the conversation. \n" +content
+    
     if tuned_model_name:
       model = model.get_tuned_model(tuned_model_name)
 

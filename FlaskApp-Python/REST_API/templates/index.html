@@ -13,7 +13,11 @@
     <div class="input-container">
       <input type="text" class="input-field" id="message-input" placeholder="Type your message...">
       <button class="send-button" onclick="sendMessage()">Send</button>
+      <button class="send-button" onclick="summarizeAndSave()">Summarize</button>
     </div>
+    <div class="summary"><p id="summary">
+
+    </p></div>
   </div>
 
   <script>
@@ -47,6 +51,35 @@
           console.error('Error:', error);
         });
     }
+
+    function summarizeAndSave() {
+  var chatbox = document.getElementsByClassName("chatbox")[0];
+  var messageContainers = chatbox.getElementsByClassName("bot-message");
+  var messages = [];
+
+  for (var i = 0; i < messageContainers.length; i++) {
+    var message = messageContainers[i].textContent;
+    messages.push(message);
+  }
+
+  var summary_url = 'https://chat-btfpe7ljtq-uc.a.run.app/summary';
+  fetch(summary_url, {
+    method: 'POST',
+    body: JSON.stringify({ content: messages }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log("Chat Summary:", data.response);
+    var summaryContainer = document.getElementById("summary");
+    summaryContainer.textContent = data.response;
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
   </script>
 </body>
 

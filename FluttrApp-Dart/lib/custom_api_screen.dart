@@ -40,8 +40,7 @@ class _CustomApiScreenState extends State<CustomApiScreen> {
       final responseBody = response.body;
       final parsedJson = json.decode(responseBody);
       final reply = parsedJson['response'];
-      print(reply);
-      //return reply;
+    print(reply);
       setState(() {
         _messages.add(reply);
         chatHistory.add(reply);
@@ -83,7 +82,7 @@ class _CustomApiScreenState extends State<CustomApiScreen> {
 
     final response =
         await http.post(Uri.parse(apiUrlChat), headers: headers, body: body);
-
+       
     if (response.statusCode == 200) {
       final responseBody = response.body;
       final parsedJson = json.decode(responseBody);
