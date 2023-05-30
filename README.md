@@ -25,7 +25,9 @@ The apps use **Generative AI** and Large Language Models (**LLM**) specifically 
       - [/chat_ar](#chat_ar)
       - [/summary_ar](#summary_ar)
       - [/en2ar](#en2ar)
-      - [/ar2en](#ar2en)
+      - [/ar2en](#ar2en)  
+   
+   3.[Third Example: Demo via Gradio in Colab Notebook](https://github.com/Ruqyai/chatBard/tree/main/Notebooks-Python)
 - [Contributing](#contributing)
 - [License](#license)
 
