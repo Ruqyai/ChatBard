@@ -27,7 +27,7 @@ The apps use **Generative AI** and Large Language Models (**LLM**) specifically 
       - [/en2ar](#en2ar)
       - [/ar2en](#ar2en)  
    
-   3.[Third Example: Demo via Gradio in Colab Notebook](https://github.com/Ruqyai/chatBard/tree/main/Notebooks-Python)
+   3.[Third Example: Demo via Gradio in Colab Notebook](#third-example-demo-via-gradio-in-colab--python)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -274,7 +274,14 @@ This endpoint translates Arabic text to English.
 
 Feel free to use these endpoints to interact with the deployed REST API.
 **NOTE:** These endpoints will be deleted after one month.
+---
 
+# Third Example: Demo via Gradio in Colab / Python     
+   
+
+Google Colab is a powerful online platform and easy to use. It provides a simple and convenient way to demonstrate code, create tutorials, and review demos.
+[Take a look](https://github.com/Ruqyai/chatBard/tree/main/Notebooks-Python)  
+   
 ---
 
 ## Contributing
