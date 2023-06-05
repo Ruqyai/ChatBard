@@ -69,7 +69,7 @@ class _CustomApiScreenState extends State<CustomApiScreen> {
 //-------------summarize And Save Chat Session RESTAPI ----------
   Future<void> summarizeAndSaveChatSessionRESTAPI() async {
     var summary = '';
-    final String apiUrlChat = urlSummarizeChatRESTApi;
+    final String apiSummarizeChat = urlSummarizeChatRESTApi;
     final headers = {
        "Access-Control-Allow-Origin": "*",
       'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ class _CustomApiScreenState extends State<CustomApiScreen> {
     ''';
 
     final response =
-        await http.post(Uri.parse(apiUrlChat), headers: headers, body: body);
+        await http.post(Uri.parse(apiSummarizeChat), headers: headers, body: body);
        
     if (response.statusCode == 200) {
       final responseBody = response.body;

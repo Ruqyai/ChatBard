@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'oauth.dart';
 
 
 class ArabicBardScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class _ArabicBardScreenState extends State<ArabicBardScreen> {
 
 //-------------Start the Chat ----------
   Future<void> sendMsgRESTAPI(String message) async {
-    const String apiUrlChat = "https://chat-btfpe7ljtq-uc.a.run.app/chat_ar";
+    final String apiUrlChat_ar = urlChatRESTApi_ar;
     final headers = {
       "Access-Control-Allow-Origin": "*",
       'Content-Type': 'application/json',
@@ -32,7 +33,7 @@ class _ArabicBardScreenState extends State<ArabicBardScreen> {
     ''';
 
     final response =
-        await http.post(Uri.parse(apiUrlChat), headers: headers, body: body);
+        await http.post(Uri.parse(apiUrlChat_ar), headers: headers, body: body);
 
     if (response.statusCode == 200) {
       final responseBody = response.body;
@@ -67,7 +68,7 @@ class _ArabicBardScreenState extends State<ArabicBardScreen> {
 //-------------summarize And Save Chat Session RESTAPI ----------
   Future<void> summarizeAndSaveChatSessionRESTAPI() async {
     var summary = '';
-    const String apiUrlChat = "https://chat-btfpe7ljtq-uc.a.run.app/summary_ar";
+    final String apiSummarizeChat = urlSummarizeChatRESTApi_ar;
     final headers = {
       "Access-Control-Allow-Origin": "*",
       'Content-Type': 'application/json',
@@ -79,7 +80,7 @@ class _ArabicBardScreenState extends State<ArabicBardScreen> {
     ''';
 
     final response =
-        await http.post(Uri.parse(apiUrlChat), headers: headers, body: body);
+        await http.post(Uri.parse(apiSummarizeChat), headers: headers, body: body);
 
     if (response.statusCode == 200) {
       final responseBody = response.body;
