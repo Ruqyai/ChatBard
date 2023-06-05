@@ -30,6 +30,7 @@ The apps use **Generative AI** and Large Language Models (**LLM**) specifically 
    3.[Third Example: Demo via Gradio in Colab Notebook](#third-example-demo-via-gradio-in-colab--python)
 - [Contributing](#contributing)
 - [License](#license)
+- [Further resources](#further-resources)
 
 
 ---
@@ -286,8 +287,14 @@ This endpoint translates Arabic text to English.
    
 
 Google Colab is a powerful online platform and easy to use. It provides a simple and convenient way to demonstrate code, create tutorials, and review demos.
-[Take a look](https://github.com/Ruqyai/chatBard/tree/main/Notebooks-Python)  
-   
+[Take a look](https://github.com/Ruqyai/chatBard/tree/main/Notebooks-Python) 
+
+## Screenshots 
+
+
+![Screenshot 4](/FluttrApp-Dart/screenshots/screenshot4.gif)  
+_A simple Demo via Gradio in Colab_
+     
 ---
 
 ## Contributing
@@ -297,5 +304,16 @@ Contributions to the app are welcome! If you find any issues or want to add new 
 ## License
 
 The app is released under the [MIT License](LICENSE).
+
+## Further Resources
+- [Google AI: PaLM2](https://ai.google/discover/palm2)
+- [Build generative AI applications](https://developers.generativeai.google/)
+- [Docs of Gen AI on Vertex AI](https://cloud.google.com/vertex-ai/docs/generative-ai/learn/overview)
+- [Docs of Generative AI for Developers](https://developers.generativeai.google/api)
+- [Generative AI repository](https://github.com/GoogleCloudPlatform/generative-ai)
+- [Python-docs-samples/generative_ai](https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/generative_ai)
+- [Awesome Prompt Engineering](https://github.com/promptslab/Awesome-Prompt-Engineering)
+- [LangChain for Google Cloud Platform Vertex AI PaLM](https://python.langchain.com/en/latest/modules/models/llms/integrations/google_vertex_ai_palm.html)
+
 
 

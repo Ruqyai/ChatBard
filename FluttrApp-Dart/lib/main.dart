@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ChatbotScreen(), // Using the original API, uncomment it to see this screen as home screen
+      home: const ChatbotScreen(), // Using the original API, uncomment it to see this screen as home screen
       // home: CustomApiScreen(), //Using the English custom REST API , uncomment it to see this screen as home screen
       // home: ArabicBardScreen(), //Using the Arabic custom REST API ,uncomment it to see this screen as home screen
     );
