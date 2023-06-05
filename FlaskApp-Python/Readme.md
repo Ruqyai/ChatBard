@@ -2,7 +2,7 @@
 
 The app uses **Generative AI** and Large Language Models (**LLM**) specifically **PaLM2 APIs** to understand and respond to user messages.
 
-- Try it [here](https://chat-btfpe7ljtq-uc.a.run.app/)
+
 ## Screenshots
 
 Here are some screenshots of the app:
@@ -17,16 +17,16 @@ This is a step-by-step guide to deploying a Python-based REST API on Cloud Run. 
 
 
 
-## To Use My Deployment API Endpoints
+## To Use The Deployment API Endpoints
 
 To interact with the deployed API endpoints, their information below.
-**FYI**, these endpoints will be deleted after one month.
+
 
 
 ### /chat  
 This endpoint allows you to have a conversation with the English Chat Bard model.
 #### Endpoint
-- URL: `https://chat-btfpe7ljtq-uc.a.run.app/chat`
+- URL: `<Your URL>/chat`
 - Method: POST
 #### Request Payload
 
@@ -48,7 +48,7 @@ This endpoint allows you to have a conversation with the English Chat Bard model
 This endpoint generates a summary of a conversation between a customer and the English Chat Bard model.
 
 #### Endpoint
-- URL: `https://chat-btfpe7ljtq-uc.a.run.app/summary`
+- URL: `<Your URL>/summary`
 - Method: POST
 #### Request Payload
 
@@ -78,7 +78,7 @@ This endpoint allows you to have a conversation with the Arabic Chat Bard model.
 
 #### Endpoint
 
-- URL: `https://chat-btfpe7ljtq-uc.a.run.app/chat_ar`
+- URL: `<Your URL>/chat_ar`
 - Method: POST
 
 
@@ -104,7 +104,7 @@ This endpoint generates a summary of a conversation between a customer and the A
 
 #### Endpoint
 
-- URL: `https://chat-btfpe7ljtq-uc.a.run.app/summary_ar`
+- URL: `<Your URL>/summary_ar`
 - Method: POST
 
 
@@ -128,7 +128,7 @@ This endpoint generates a summary of a conversation between a customer and the A
 This endpoint translates English text to Arabic.
 
 #### Endpoint
-- URL: `https://chat-btfpe7ljtq-uc.a.run.app/en2ar`
+- URL: `<Your URL>/en2ar`
 - Method: POST
 
 #### Request Payload
@@ -152,7 +152,7 @@ This endpoint translates English text to Arabic.
 This endpoint translates Arabic text to English.
 
 #### Endpoint
-- URL: `https://chat-btfpe7ljtq-uc.a.run.app/ar2en`
+- URL: `<Your URL>/ar2en`
 - Method: POST
 
 
@@ -171,8 +171,6 @@ This endpoint translates Arabic text to English.
   "response": "Translated English text"
 }
 ```
-Feel free to use these endpoints to interact with the deployed REST API.
-**NOTE:** These endpoints will be deleted after one month.
 
 
 ## Contributing

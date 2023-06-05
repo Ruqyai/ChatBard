@@ -2,17 +2,23 @@
 
 # ChatBARD : An Intelligent Customer Service Center App
 
-This is a Flutter app for an intelligent customer service center. It provides a chat interface where users can interact with a chatbot to get customer support. The app uses **Generative AI** and Large Language Models (**LLM**) specifically **PaLM2 APIs** to understand and respond to user messages.
+ChatBard  is an intelligent customer service center app powered by **Generative AI** and large language models (**LLM**) using **PaLM2 APIs**. 🤖💬   
+This demo of Flutter app is designed to inspire you and showcase how ChatBard can revolutionize customer support. It provides a chat interface where users can interact with a chatbot to ask questions and get answers. The app utilizes generative AI and large language models (LLMs), specifically PaLM2 APIs, to understand and respond intelligently to user messages. The demo app analyzes the context and examples provided to respond accurately, making it an invaluable tool for any customer service center.   
+ChatBard can be easily customized to align with the nature of your business. By modifying the context and examples, you can tailor the chatbot's responses to your specific business requirements and customer interactions.  
+Screenshots of the app showcase its functionality, including capturing conversations with clients and providing summarized records stored in Firebase. It offers both English and Arabic language support. Note that this is a developed feature in this app by creating a custom REST API for translation. PaLM2 and Bard are still under development and do not yet support the Arabic language.  
 
 ## How does it work?
-The ChatBARD responds to customer queries based on the information it has been fed with in terms of context and examples. Then it summarizes the conversation and stores the summary in the database in Firebase.
+The ChatBard responds to customer queries based on the information it has been fed with in terms of context and examples. Then it summarizes the conversation and stores the summary in the database in Firebase.
 
 ## Features
 
-- Chat interface: Users can send messages and receive responses from the chatbot.
-- Intelligent responses: The app uses a machine learning model to generate intelligent responses based on the user's input.
-- Chat history: The app keeps track of the chat history and displays it in the chat interface.
-- Summarization and saving: The app can summarize the chat session and save it to a Firebase database for future reference.
+Key features of ChatBard include:  
+- 📱 User-friendly chat interface for seamless communication.   
+- 🧠 Intelligent responses powered by PaLM2 model.  
+- 🔧 Easily customizable to align with the nature of your business by modifying the context and examples.   
+- 🌍 Multi-language support (English and Arabic).    
+- 📚 Chat history tracking and display in real-time.    
+- 💾 Summarization and saving of conversations to Firebase database for future reference. 
 
 ## Screenshots
 
@@ -23,6 +29,8 @@ _A conversation with the client, and after the conversation ends, it is summariz
 
 ![Screenshot 2](screenshots/screenshot2.gif)  
 _Arabic Bard in a conversation with the client, and after the conversation ends, it is summarized and stored in Firebase._
+
+<h4 style="color:Tomato;"><i> Note: It is a developed feature in this app by creating a custom REST API for translation. PaLM2 and Bard are still under development and do not yet support the Arabic language.</i> </h4>
 
 ## Prerequisites
 
