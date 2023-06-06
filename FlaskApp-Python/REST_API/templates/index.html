@@ -15,9 +15,11 @@
       <button class="send-button" onclick="sendMessage()">Send</button>
       <button class="send-button" onclick="summarizeAndSave()">Summarize</button>
     </div>
-    <div class="summary"><p id="summary">
+    <div class="summary">
+      <p id="summary">
 
-    </p></div>
+      </p>
+    </div>
   </div>
 
   <script>
@@ -32,8 +34,7 @@
       chatbox.appendChild(botMessageContainer);
       var userMessageContainer = document.createElement("div");
       userMessageContainer.className = "user-message";
-       // TODO:  Change <Your URL> to your URL
-      chat_url = "<Your URL>/chat"; 
+      chat_url = "./chat";
       fetch(chat_url, {
         method: 'POST',
         body: JSON.stringify({ message: message }),
@@ -54,33 +55,32 @@
     }
 
     function summarizeAndSave() {
-  var chatbox = document.getElementsByClassName("chatbox")[0];
-  var messageContainers = chatbox.getElementsByClassName("bot-message");
-  var messages = [];
+      var chatbox = document.getElementsByClassName("chatbox")[0];
+      var messageContainers = chatbox.getElementsByClassName("bot-message");
+      var messages = [];
 
-  for (var i = 0; i < messageContainers.length; i++) {
-    var message = messageContainers[i].textContent;
-    messages.push(message);
-  }
-  // TODO:  Change <Your URL> to your URL
-  var summary_url = '<Your URL>/summary';
-  fetch(summary_url, {
-    method: 'POST',
-    body: JSON.stringify({ content: messages }),
-    headers: {
-      'Content-Type': 'application/json'
+      for (var i = 0; i < messageContainers.length; i++) {
+        var message = messageContainers[i].textContent;
+        messages.push(message);
+      }
+      var summary_url = './summary';
+      fetch(summary_url, {
+        method: 'POST',
+        body: JSON.stringify({ content: "" + messages }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log("Chat Summary:", data.response);
+          var summaryContainer = document.getElementById("summary");
+          summaryContainer.textContent = data.response;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
     }
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log("Chat Summary:", data.response);
-    var summaryContainer = document.getElementById("summary");
-    summaryContainer.textContent = data.response;
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-}
   </script>
 </body>
 

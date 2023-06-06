@@ -28,8 +28,11 @@ Here are some screenshots of the app:
 _A conversation with the client, and after the conversation ends, it is summarized and stored in Firebase._
 
 ![Screenshot 2](screenshots/screenshot2.gif)  
-_Arabic Bard in a conversation with the client, and after the conversation ends, it is summarized and stored in Firebase._
-
+_Arabic Bard in a conversation with the client, and after the conversation ends, it is summarized and stored in Firebase._  
+![Screenshot 5](/FluttrApp-Dart/screenshots/screenshot5.png)  
+_On Android mobile: A conversation with the client, and after the conversation ends, it is summarized and stored in Firebase._   
+![Screenshot 6](/FluttrApp-Dart/screenshots/screenshot6.png)  
+_On Android mobile: Arabic Bard in a conversation with the client, and after the conversation ends, it is summarized and stored in Firebase._ 
 <h4 style="color:Tomato;"><i> Note: It is a developed feature in this app by creating a custom REST API for translation. PaLM2 and Bard are still under development and do not yet support the Arabic language.</i> </h4>
 
 ## Prerequisites

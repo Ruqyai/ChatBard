@@ -18,7 +18,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   final TextEditingController _textEditingController = TextEditingController();
   final List<String> _messages = [];
   final List<String> chatHistory = [];
-  
+
 //-------------Start the Chat ----------
   Future<void> sendMessage(String message) async {
     final String apiUrlChat = urlChatApi;
@@ -105,7 +105,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     {
      "instances": [
           {
-          "content": "Summarize the following conversation between a chatBard and a customer in a few sentences. Use only the information from the conversation. $chatHistory"
+          "content": "Summarize the following conversation between a chatbot and a customer in a few sentences. Use only the information from the conversation. $chatHistory"
           }
         ],
       "parameters": {

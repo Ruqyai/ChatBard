@@ -6,7 +6,6 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'oauth.dart';
 
-
 class ArabicBardScreen extends StatefulWidget {
   const ArabicBardScreen({super.key});
 
@@ -19,9 +18,9 @@ class _ArabicBardScreenState extends State<ArabicBardScreen> {
   final List<String> _messages = [];
   final List<String> chatHistory = [];
 
-//-------------Start the Chat ----------
+//-------------Start the Arabic Chat ----------
   Future<void> sendMsgRESTAPI(String message) async {
-    final String apiUrlChat_ar = urlChatRESTApi_ar;
+    final String apiUrlChatAr = urlChatRESTApiAr;
     final headers = {
       "Access-Control-Allow-Origin": "*",
       'Content-Type': 'application/json',
@@ -33,20 +32,19 @@ class _ArabicBardScreenState extends State<ArabicBardScreen> {
     ''';
 
     final response =
-        await http.post(Uri.parse(apiUrlChat_ar), headers: headers, body: body);
+        await http.post(Uri.parse(apiUrlChatAr), headers: headers, body: body);
 
     if (response.statusCode == 200) {
       final responseBody = response.body;
       final parsedJson = json.decode(responseBody);
       final reply = parsedJson['response'];
       print(reply);
-      //return reply;
       setState(() {
         _messages.add(reply);
         chatHistory.add(reply);
       });
     } else {
-       print('Error: ${response.statusCode}');
+      print('Error: ${response.statusCode}');
     }
   }
 
@@ -65,10 +63,10 @@ class _ArabicBardScreenState extends State<ArabicBardScreen> {
     }
   }
 
-//-------------summarize And Save Chat Session RESTAPI ----------
+//-------------summarize And Save the Arabic Chat Session RESTAPI ----------
   Future<void> summarizeAndSaveChatSessionRESTAPI() async {
     var summary = '';
-    final String apiSummarizeChat = urlSummarizeChatRESTApi_ar;
+    final String apiSummarizeChatAr = urlSummarizeChatRESTApiAr;
     final headers = {
       "Access-Control-Allow-Origin": "*",
       'Content-Type': 'application/json',
@@ -76,11 +74,11 @@ class _ArabicBardScreenState extends State<ArabicBardScreen> {
     };
 
     final body = '''
-    {"content": "$chatHistory"}
+    {"content": "[$chatHistory]"}
     ''';
 
-    final response =
-        await http.post(Uri.parse(apiSummarizeChat), headers: headers, body: body);
+    final response = await http.post(Uri.parse(apiSummarizeChatAr),
+        headers: headers, body: body);
 
     if (response.statusCode == 200) {
       final responseBody = response.body;

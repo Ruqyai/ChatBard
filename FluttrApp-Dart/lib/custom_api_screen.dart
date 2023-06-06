@@ -18,8 +18,6 @@ class _CustomApiScreenState extends State<CustomApiScreen> {
   final List<String> _messages = [];
   final List<String> chatHistory = [];
 
-
-
 //-------------Start the Chat ----------
   Future<void> sendMsgRESTAPI(String message) async {
     final String apiUrlChat = urlChatRESTApi;
@@ -35,19 +33,18 @@ class _CustomApiScreenState extends State<CustomApiScreen> {
 
     final response =
         await http.post(Uri.parse(apiUrlChat), headers: headers, body: body);
-     
+
     if (response.statusCode == 200) {
       final responseBody = response.body;
       final parsedJson = json.decode(responseBody);
       final reply = parsedJson['response'];
-    print(reply);
+      print(reply);
       setState(() {
         _messages.add(reply);
         chatHistory.add(reply);
       });
-   
     } else {
-       print('Error: ${response.statusCode}');
+      print('Error: ${response.statusCode}');
     }
   }
 
@@ -71,26 +68,26 @@ class _CustomApiScreenState extends State<CustomApiScreen> {
     var summary = '';
     final String apiSummarizeChat = urlSummarizeChatRESTApi;
     final headers = {
-       "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Origin": "*",
       'Content-Type': 'application/json',
       'Accept': '*/*'
     };
 
     final body = '''
-    {"content": "$chatHistory"}
+    {"content": "[$chatHistory]"}
     ''';
 
-    final response =
-        await http.post(Uri.parse(apiSummarizeChat), headers: headers, body: body);
-       
+    final response = await http.post(Uri.parse(apiSummarizeChat),
+        headers: headers, body: body);
+
     if (response.statusCode == 200) {
       final responseBody = response.body;
       final parsedJson = json.decode(responseBody);
       final reply = parsedJson['response'];
-      
+
       summary = reply;
       print(summary);
-        
+
       //Save the summarized chat in Firebase
       final CollectionReference chatSummariesCollection =
           FirebaseFirestore.instance.collection('chat_summaries');
@@ -103,7 +100,6 @@ class _CustomApiScreenState extends State<CustomApiScreen> {
       print('Error: ${response.statusCode}');
     }
   }
-
 
 //----------------Build UI ----------
   @override
@@ -155,4 +151,3 @@ class _CustomApiScreenState extends State<CustomApiScreen> {
     );
   }
 }
-
