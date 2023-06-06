@@ -8,7 +8,7 @@ The app uses **Generative AI** and Large Language Models (**LLM**) specifically 
 Here are some screenshots of the app:
 
 ![Screenshot 3](/FluttrApp-Dart/screenshots/screenshot3.gif)  
-_A simple UI for the conversation with the clients_
+_A simple UI for the conversation with the clients_  
 
 ![Screenshot 7](/FluttrApp-Dart/screenshots/screenshot7.png)  
 _If the Summarize button clicked, the summary will appear on the bottom_
