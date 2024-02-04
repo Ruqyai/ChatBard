@@ -40,11 +40,12 @@ The apps use **Generative AI** and Large Language Models (**LLM**) specifically 
 # Thanks Google Cloud Tech for Highlight this Work 
 
 
-Soon after announcing PaLM2, Google Cloud started exploring community projects utilizing its potential. Among these, they spotlighted my work as a standout example and even tweeted about it from their official Twitter account.
+Thrilled that Google Cloud Tech highlighted my work on ChatBard! Soon after PaLM2's release, they recognized my project as a standout example and even tweeted about it from their official account. I'm grateful for their support and excited to continue exploring. 
 
  [Read the tweet of Google Cloud Tech](https://twitter.com/GoogleCloudTech/status/1671631832108920832)  
 
-![Google Cloud Tech](/FluttrApp-Dart/screenshots/ChatBard.png)
+
+<img src="./FluttrApp-Dart/screenshots/ChatBard.png" width="250" height="350" />
   
 
 # First Example: Flutter App / Drat
