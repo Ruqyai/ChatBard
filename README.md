@@ -7,6 +7,7 @@ The apps use **Generative AI** and Large Language Models (**LLM**) specifically 
 <h3>The table of contents:<h3>
 
 - [ChatBard: An Intelligent Customer Service Center App](#chatbard--an-intelligent-customer-service-center-app)
+- [Thanks Google Cloud Tech for Highlight this Work](#thanks-google-cloud-tech-for-highlight-this-work)
 1. [First Example: Flutter App / Drat](#first-example-flutter-app--drat)
    - [How does it work?](#how-does-it-work)
    - [Features](#features)
@@ -33,7 +34,18 @@ The apps use **Generative AI** and Large Language Models (**LLM**) specifically 
 - [Further resources](#further-resources)
 
 
----
+--- 
+
+   
+# Thanks Google Cloud Tech for Highlight this Work 
+
+
+Soon after announcing PaLM2, Google Cloud started exploring community projects utilizing its potential. Among these, they spotlighted my work as a standout example and even tweeted about it from their official Twitter account.
+
+ [Read the tweet of Google Cloud Tech](https://twitter.com/GoogleCloudTech/status/1671631832108920832)  
+
+![Google Cloud Tech](/FluttrApp-Dart/screenshots/ChatBard.png)
+  
 
 # First Example: Flutter App / Drat
 
